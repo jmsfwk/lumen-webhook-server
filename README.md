@@ -1,9 +1,9 @@
 # Send webhooks from Lumen apps
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-webhook-server.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-webhook-server)
-[![Build Status](https://img.shields.io/travis/spatie/laravel-webhook-server/master.svg?style=flat-square)](https://travis-ci.org/spatie/laravel-webhook-server)
-[![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-webhook-server.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-webhook-server)
-[![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-webhook-server.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-webhook-server)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/jmsfwk/lumen-webhook-server.svg?style=flat-square)](https://packagist.org/packages/jmsfwk/lumen-webhook-server)
+[![Build Status](https://img.shields.io/travis/jmsfwk/lumen-webhook-server/master.svg?style=flat-square)](https://travis-ci.org/jmsfwk/lumen-webhook-server)
+[![Quality Score](https://img.shields.io/scrutinizer/g/jmsfwk/lumen-webhook-server.svg?style=flat-square)](https://scrutinizer-ci.com/g/jmsfwk/lumen-webhook-server)
+[![Total Downloads](https://img.shields.io/packagist/dt/jmsfwk/lumen-webhook-server.svg?style=flat-square)](https://packagist.org/packages/jmsfwk/lumen-webhook-server)
 
 This package adapts [spatie/laravel-webhook-server](https://github.com/spatie/laravel-webhook-server) for use with Lumen.
 
