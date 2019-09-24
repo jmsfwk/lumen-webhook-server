@@ -54,6 +54,12 @@ class CallWebhookJob implements ShouldQueue
     /** @var array */
     public $tags = [];
 
+    /** @var string */
+    public $errorType = null;
+
+    /** @var string */
+    public $errorMessage = null;
+
     /** @var \GuzzleHttp\Psr7\Response|null */
     private $response;
 
@@ -83,6 +89,9 @@ class CallWebhookJob implements ShouldQueue
 
             $waitInSeconds = $backoffStrategy->waitInSecondsAfterAttempt($this->attempts());
 
+            $this->errorMessage = $exception->getMessage();
+            $this->errorType = get_class($exception);
+
             $this->dispatchEvent(WebhookCallFailedEvent::class);
 
             $this->release($waitInSeconds);
@@ -106,6 +115,8 @@ class CallWebhookJob implements ShouldQueue
             $this->tags,
             $this->attempts(),
             $this->response,
+            $this->errorType,
+            $this->errorMessage
         ));
     }
 
