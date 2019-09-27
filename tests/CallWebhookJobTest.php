@@ -12,7 +12,7 @@ use Spatie\WebhookServer\Events\WebhookCallFailedEvent;
 
 class CallWebhookJobTest extends TestCase
 {
-    /** @var \Spatie\WebhookServer\Tests\TestClasses\TestClient */
+    /** @var TestClient */
     private $testClient;
 
     public function setUp(): void
@@ -125,6 +125,19 @@ class CallWebhookJobTest extends TestCase
         Event::assertDispatched(WebhookCallFailedEvent::class, 3);
         Event::assertDispatched(FinalWebhookCallFailedEvent::class, 1);
         $this->testClient->assertRequestCount(3);
+    }
+
+    /** @test */
+    public function it_sets_the_error_fields_on_connection_failure()
+    {
+        $this->testClient->throwConnectionException();
+        $this->baseWebhook()->dispatch();
+        $this->artisan('queue:work --once');
+        Event::assertDispatched(WebhookCallFailedEvent::class, function (WebhookCallFailedEvent $event) {
+            $this->assertNotNull($event->errorType);
+            $this->assertNotNull($event->errorMessage);
+            return true;
+        });
     }
 
     protected function baseWebhook(): WebhookCall
