@@ -2,6 +2,10 @@
 
 All notable changes to `lumen-webhook-server` will be documented in this file
 
+## 1.0.1 - 2019-09-27
+
+- Require spatie/laravel-webhook-server version 1.4
+
 ## 1.0.0 - 2019-09-27
 
 - Support Lumen 6
